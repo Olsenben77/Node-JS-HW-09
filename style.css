@@ -1,0 +1,16 @@
+body {
+  text-align: center;
+}
+.card-body {
+  background-color: #4aaaa5;
+  color: white;
+  height: 275px;
+  margin-top: 40px;
+}
+i {
+  padding: 0 1rem;
+}
+/* .row {
+  margin-left: 225px;
+  margin-right: 150px;
+} */
