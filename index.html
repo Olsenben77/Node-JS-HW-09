@@ -22,18 +22,71 @@
   </head>
 
   <body>
+    <div class="background">
     <div class="container">
       <div class="row">
-        <div class="col-md-2">
-          <div class="card" style="width: 69rem;">
-            <div class="card-body">
-              <img src="..." class="card-img-top" alt="..." />
+        <div class="d-flex justify-content-center col-sm-12 col-md-12 col-lg-12">
+            <div class="card-body rounded" id="card-color" style= "width:500px; height:400px;background-color: #4aaaa5; border-style: solid !important; border-color:white">
+              <div class="avatar mx-auto white">
+                <img src="Cancun.jpeg"  class="rounded-circle img-responsive" style ="height: 200px; border-color:white">
+              </div>
               <h1 class="card-title">Hi!</h1>
-              <h1 class="card-title">My name is !</h1>
+              <h1 class="card-title">My name is ${name}!</h1>
               <p class="card-text">
-                <i class="fas fa-location-arrow"></i>
-                <i class="fab fa-github"></i>
-                <i class="fas fa-rss-square"></i>
+                <i class="fas fa-location-arrow"> ${location}</i>
+                <i class="fab fa-github">${bio}</i>
+                <i class="fas fa-rss-square">${blog}</i>
+              </p>
+            </div>
+          </div>
+        </div>
+      <div class="row">
+        <div class="d-flex justify-content-center col-sm-6 col-md-12 col-lg-6">
+          <div style="max-width: 18rem;">
+            <div class="card-body rounded" id="card-color" style= "width:300px; border-style: solid !important; border-color:white">
+              <p class="card-text">
+                <h3><u>Public Repositories</u></h3>
+              </p>
+              <p class="card-text">
+                <h3></h3>
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="d-flex justify-content-center col-sm-6 col-md-12 col-lg-6">
+          <div style="max-width: 18rem;">
+            <div class="card-body rounded" id="card-color" style= "width:300px; border-style: solid !important; border-color:white">
+              <p class="card-text">
+                <h3><u>Followers</u></h3>
+              </p>
+              <p class="card-text">
+                <h3></h3>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="d-flex justify-content-center col-sm-6 col-md-12 col-lg-6">
+          <div style="max-width: 18rem;">
+            <div class="card-body rounded" id="card-color" style= "width:300px; border-style: solid !important; border-color:white">
+              <p class="card-text">
+                <h3><u>Github Stars</u></h3>
+              </p>
+              <p class="card-text">
+                <h3></h3>
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="d-flex justify-content-center col-sm-6 col-md-12 col-lg-6">
+          <div style="max-width: 18rem;">
+            <div class="card-body rounded" id="card-color" style= "width:300px; border-style: solid !important; border-color:white">
+              <p class="card-text">
+                <h3><u>Following</u></h3>
+              </p>
+              <p class="card-text">
+                <h3></h3>
               </p>
             </div>
           </div>
@@ -41,4 +94,5 @@
       </div>
     </div>
   </body>
+</div>
 </html>
