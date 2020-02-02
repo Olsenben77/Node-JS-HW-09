@@ -31,17 +31,17 @@ async function userInfo() {
     await writeFileAsync("index.html", htmltext, "utf8");
     await printPDF();
     open("./resume.pdf");
+    const responseStars = await axios.get(
+      `https://api.github.com/users/${user.starred}`
+    );
+    console.log(responseStars);
+    const starredtext = html(response.data, user.starred);
+    await writeFileAsync("index.html", starredtext, "utf8");
+    await printPDF();
+    open("./resume.pdf");
   } catch (error) {
     console.log(error);
   }
-  const responseStars = await axios.get(
-    `https://api.github.com/users/${user}/starred`
-  );
-  console.log(responseStars);
-  const htmltext = html(response.data, answers.colors);
-  await writeFileAsync("index.html", htmltext, "utf8");
-  await printPDF();
-  open("./resume.pdf");
 }
 function html(
   {
@@ -52,7 +52,7 @@ function html(
     followers,
     following,
     location,
-    user,
+    starred,
     avatar_url
   },
   color
@@ -161,7 +161,7 @@ function html(
                   <h3><u>Github Stars</u></h3>
                 </p>
                 <p class="card-text">
-                  <h3>${user}</h3>
+                  <h3>${starred}</h3>
                 </p>
               </div>
             </div>
