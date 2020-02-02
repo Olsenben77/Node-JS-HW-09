@@ -1,98 +1,126 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
-      crossorigin="anonymous"
-    />
-    <link
-      rel="stylesheet"
-      href="https://use.fontawesome.com/releases/v5.12.0/css/all.css"
-      integrity="sha384-REHJTs1r2ErKBuJB0fCK99gCYsVjwxHrSU0N7I1zl9vZbggVJXRMsv/sLlOAGb4M"
-      crossorigin="anonymous"
-    />
-
-    <link rel="stylesheet" type="text/css" href="style.css" />
-    <title>|| User Github Info ||</title>
-  </head>
-
-  <body>
-    <div class="background">
-    <div class="container">
-      <div class="row">
-        <div class="d-flex justify-content-center col-sm-12 col-md-12 col-lg-12">
-            <div class="card-body rounded" id="card-color" style= "width:500px; height:400px;background-color: #4aaaa5; border-style: solid !important; border-color:white">
-              <div class="avatar mx-auto white">
-                <img src="Cancun.jpeg"  class="rounded-circle img-responsive" style ="height: 200px; border-color:white">
+  <html lang="en">
+    <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+      <link
+        rel="stylesheet"
+        href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+        crossorigin="anonymous"
+      />
+      <link
+        rel="stylesheet"
+        href="https://use.fontawesome.com/releases/v5.12.0/css/all.css"
+        integrity="sha384-REHJTs1r2ErKBuJB0fCK99gCYsVjwxHrSU0N7I1zl9vZbggVJXRMsv/sLlOAGb4M"
+        crossorigin="anonymous"
+      />
+      <title>|| User Github Info ||</title>
+      <style>
+      body {
+        text-align: center;
+      -webkit-print-color-adjust: exact;
+      }
+      .card-body {
+        background-color: Red;
+        color: white;
+        height: 400px;
+        margin-top: 40px;
+        padding: 0px;
+      }
+      i {
+        padding: 0 1rem;
+      }
+      #card-color {
+        background-color: Red;
+        height: 200px;
+        margin-bottom: 25px;
+      }
+      .card {
+        border: 0px;
+      }
+      .background {
+        background: url("https://www.toptal.com/designers/subtlepatterns/patterns/green_gobbler.png");
+      }
+      img {
+        border-style: solid !important;
+      }
+      </style>
+    </head>
+  
+    <body>
+      <div class="background">
+      <div class="container">
+        <div class="row">
+          <div class="d-flex justify-content-center col-sm-12 col-md-12 col-lg-12">
+              <div class="card-body rounded" id="card-color" style= "width:500px; height:475px;background-color: Red; border-style: solid !important; border-color:white">
+                <div class="avatar mx-auto white">
+                  <img src="https://avatars1.githubusercontent.com/u/57682949?v=4"  class="rounded-circle img-responsive" style ="height: 200px; border-color:white">
+                </div>
+                <h1 class="card-title">Hi!</h1>
+                <h1 class="card-title">My name is Benjamin Olsen!</h1>
+                <p class="card-text">
+                  <h4><i class="fas fa-location-arrow"> Seattle, WA</i></h4>
+                  <h4><i class="fab fa-github">Motivated web developer, Spanish speaker, and Wisconsin native.</i><h/4>
+                  <h4><i class="fas fa-rss-square">https://github.com/Olsenben77/Portfolio</i></h4>
+                </p>
               </div>
-              <h1 class="card-title">Hi!</h1>
-              <h1 class="card-title">My name is ${name}!</h1>
-              <p class="card-text">
-                <i class="fas fa-location-arrow"> ${location}</i>
-                <i class="fab fa-github">${bio}</i>
-                <i class="fas fa-rss-square">${blog}</i>
-              </p>
+            </div>
+          </div>
+        <div class="row">
+          <div class="d-flex justify-content-center col-sm-6 col-md-12 col-lg-6">
+            <div style="max-width: 18rem;">
+              <div class="card-body rounded" id="card-color" style= "width:300px; border-style: solid !important; border-color:white">
+                <p class="card-text">
+                  <h3><u>Public Repositories</u></h3>
+                </p>
+                <p class="card-text">
+                  <h3>13</h3>
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="d-flex justify-content-center col-sm-6 col-md-12 col-lg-6">
+            <div style="max-width: 18rem;">
+              <div class="card-body rounded" id="card-color" style= "width:300px; border-style: solid !important; border-color:white">
+                <p class="card-text">
+                  <h3><u>Followers</u></h3>
+                </p>
+                <p class="card-text">
+                  <h3>4</h3>
+                </p>
+              </div>
             </div>
           </div>
         </div>
-      <div class="row">
-        <div class="d-flex justify-content-center col-sm-6 col-md-12 col-lg-6">
-          <div style="max-width: 18rem;">
-            <div class="card-body rounded" id="card-color" style= "width:300px; border-style: solid !important; border-color:white">
-              <p class="card-text">
-                <h3><u>Public Repositories</u></h3>
-              </p>
-              <p class="card-text">
-                <h3></h3>
-              </p>
+        <div class="row">
+          <div class="d-flex justify-content-center col-sm-6 col-md-12 col-lg-6">
+            <div style="max-width: 18rem;">
+              <div class="card-body rounded" id="card-color" style= "width:300px; border-style: solid !important; border-color:white">
+                <p class="card-text">
+                  <h3><u>Github Stars</u></h3>
+                </p>
+                <p class="card-text">
+                  <h3>undefined</h3>
+                </p>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="d-flex justify-content-center col-sm-6 col-md-12 col-lg-6">
-          <div style="max-width: 18rem;">
-            <div class="card-body rounded" id="card-color" style= "width:300px; border-style: solid !important; border-color:white">
-              <p class="card-text">
-                <h3><u>Followers</u></h3>
-              </p>
-              <p class="card-text">
-                <h3></h3>
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="d-flex justify-content-center col-sm-6 col-md-12 col-lg-6">
-          <div style="max-width: 18rem;">
-            <div class="card-body rounded" id="card-color" style= "width:300px; border-style: solid !important; border-color:white">
-              <p class="card-text">
-                <h3><u>Github Stars</u></h3>
-              </p>
-              <p class="card-text">
-                <h3></h3>
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="d-flex justify-content-center col-sm-6 col-md-12 col-lg-6">
-          <div style="max-width: 18rem;">
-            <div class="card-body rounded" id="card-color" style= "width:300px; border-style: solid !important; border-color:white">
-              <p class="card-text">
-                <h3><u>Following</u></h3>
-              </p>
-              <p class="card-text">
-                <h3></h3>
-              </p>
+          <div class="d-flex justify-content-center col-sm-6 col-md-12 col-lg-6">
+            <div style="max-width: 18rem;">
+              <div class="card-body rounded" id="card-color" style= "width:300px; border-style: solid !important; border-color:white">
+                <p class="card-text">
+                  <h3><u>Following</u></h3>
+                </p>
+                <p class="card-text">
+                  <h3>3</h3>
+                </p>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  </body>
-</div>
-</html>
+    </body>
+  </div>
+  </html>

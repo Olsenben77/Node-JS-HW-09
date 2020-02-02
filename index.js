@@ -3,6 +3,9 @@ const { writeFile } = require("fs");
 const axios = require("axios");
 const inquirer = require("inquirer");
 const { promisify } = require("util");
+const puppeteer = require("puppeteer");
+const path = require("path");
+const open = require("open");
 
 const writeFileAsync = promisify(writeFile);
 async function userInfo() {
@@ -24,36 +27,31 @@ async function userInfo() {
     const response = await axios.get(
       `https://api.github.com/users/${answers.username}`
     );
-    // const {
-    //   name,
-    //   blog,
-    //   bio,
-    //   public_repos,
-    //   followers,
-    //   following,
-    //   location,
-    //   starred,
-    //   avatar_url
-    // } = response.data;
-
-    const htmltext = html(response.data);
-    console.log(htmltext);
+    console.log("here");
+    const htmltext = html(response.data, answers.colors);
+    // console.log(htmltext);
+    console.log("Writing html file");
+    await writeFileAsync("index.html", htmltext, "utf8");
+    await printPDF();
+    open("./resume.pdf");
   } catch (error) {
-    console.log(answers.username);
+    console.log(error);
   }
 }
-userInfo();
-function html({
-  name,
-  blog,
-  bio,
-  public_repos,
-  followers,
-  following,
-  location,
-  starred,
-  avatar_url
-}) {
+function html(
+  {
+    name,
+    blog,
+    bio,
+    public_repos,
+    followers,
+    following,
+    location,
+    starred,
+    avatar_url
+  },
+  color
+) {
   return `<!DOCTYPE html>
   <html lang="en">
     <head>
@@ -72,14 +70,14 @@ function html({
         integrity="sha384-REHJTs1r2ErKBuJB0fCK99gCYsVjwxHrSU0N7I1zl9vZbggVJXRMsv/sLlOAGb4M"
         crossorigin="anonymous"
       />
-  
-      <link rel="stylesheet" type="text/css" href="style.css" />
       <title>|| User Github Info ||</title>
+      <style>
       body {
         text-align: center;
+      -webkit-print-color-adjust: exact;
       }
       .card-body {
-        background-color: #4aaaa5;
+        background-color: ${color};
         color: white;
         height: 400px;
         margin-top: 40px;
@@ -89,7 +87,7 @@ function html({
         padding: 0 1rem;
       }
       #card-color {
-        background-color: #777777;
+        background-color: ${color};
         height: 200px;
         margin-bottom: 25px;
       }
@@ -102,7 +100,7 @@ function html({
       img {
         border-style: solid !important;
       }
-      
+      </style>
     </head>
   
     <body>
@@ -110,16 +108,16 @@ function html({
       <div class="container">
         <div class="row">
           <div class="d-flex justify-content-center col-sm-12 col-md-12 col-lg-12">
-              <div class="card-body rounded" id="card-color" style= "width:500px; height:400px;background-color: #4aaaa5; border-style: solid !important; border-color:white">
+              <div class="card-body rounded" id="card-color" style= "width:500px; height:475px;background-color: ${color}; border-style: solid !important; border-color:white">
                 <div class="avatar mx-auto white">
                   <img src="${avatar_url}"  class="rounded-circle img-responsive" style ="height: 200px; border-color:white">
                 </div>
                 <h1 class="card-title">Hi!</h1>
                 <h1 class="card-title">My name is ${name}!</h1>
                 <p class="card-text">
-                  <i class="fas fa-location-arrow"> ${location}</i>
-                  <i class="fab fa-github">${bio}</i>
-                  <i class="fas fa-rss-square">${blog}</i>
+                  <h4><i class="fas fa-location-arrow"> ${location}</i></h4>
+                  <h4><i class="fab fa-github">${bio}</i><h/4>
+                  <h4><i class="fas fa-rss-square">${blog}</i></h4>
                 </p>
               </div>
             </div>
@@ -182,8 +180,19 @@ function html({
   </html>`;
 }
 
-//     console.log(html);
-//     fs.writeFile("index.html", html, function(err) {
-//       if (err) console.log("error", err);
-//     });
-//   });
+async function printPDF() {
+  const browser = await puppeteer.launch({ headless: true });
+  const page = await browser.newPage();
+  await page.goto(`file://${path.resolve(__dirname, "index.html")}`, {
+    waitUntil: "networkidle0"
+  });
+  const pdf = await page.pdf({ format: "A4" });
+  await writeFileAsync("resume.pdf", pdf, "binary");
+  await browser.close();
+}
+
+async function start() {
+  await userInfo();
+  console.log("done");
+}
+start();
